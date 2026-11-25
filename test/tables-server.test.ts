@@ -39,7 +39,7 @@ describe("TablesAepServer (AEP + HTTP/SSE Webapp)", () => {
     const transport = await connectWebSocket(started.wsUrl, { mode: "binary" });
     const client = await AepClient.connect(transport, {
       syncTree: true,
-      clientInfo: { name: "tables-test-client", version: "0.1.0" },
+      clientInfo: { name: "tables-test-client", version: "1.0.0-beta.0" },
     });
 
     const sseController = new AbortController();
@@ -87,11 +87,13 @@ describe("TablesAepServer (AEP + HTTP/SSE Webapp)", () => {
       const manifestRes = await fetch(started.discoveryUrl);
       assert.equal(manifestRes.status, 200);
       const manifest = (await manifestRes.json()) as {
+        protocolVersion: string;
         aepEndpoint: string;
         rootPath: string;
         mode: string;
         name: string;
       };
+      assert.equal(manifest.protocolVersion, "1.0.0-beta.0");
       assert.equal(manifest.aepEndpoint, started.wsUrl);
       assert.equal(manifest.rootPath, "/tables");
       assert.equal(manifest.mode, "binary");

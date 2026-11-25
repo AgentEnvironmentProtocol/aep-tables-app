@@ -1,6 +1,7 @@
 import http, { type IncomingMessage, type ServerResponse } from "node:http";
 import {
   AEP_ERROR_CODES,
+  AEP_PROTOCOL_VERSION,
   AepError,
   type AepNode,
   type AepValue,
@@ -777,7 +778,7 @@ export class TablesAepServer {
     const aepServer = new AepServer({
       serverInfo: {
         name: "aep-tables-app",
-        version: "0.1.0",
+        version: "1.0.0-beta.0",
         description: "Simple AEP-enabled Tables App for storing tables of typed records",
       },
       capabilities: {
@@ -1396,7 +1397,7 @@ export class TablesAepServer {
         const port = this.boundPort ?? this.port;
         const authority = hostHeader || `${this.host}:${port}`;
         sendJson(res, 200, {
-          protocolVersion: "1.0.0-draft",
+          protocolVersion: AEP_PROTOCOL_VERSION,
           name: "aep-tables-app",
           aepEndpoint: `ws://${authority}${this.wsPath}`,
           transport: "websocket",

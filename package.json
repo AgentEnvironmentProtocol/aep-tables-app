@@ -1,10 +1,18 @@
 {
   "name": "aep-tables-app",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.0",
   "private": true,
   "description": "Simple AEP-enabled Tables web app for storing tables of typed records",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgentEnvironmentProtocol/aep-tables-app.git"
+  },
+  "homepage": "https://github.com/AgentEnvironmentProtocol/aep-tables-app#readme",
+  "bugs": {
+    "url": "https://github.com/AgentEnvironmentProtocol/aep-tables-app/issues"
+  },
   "engines": {
     "node": ">=22.0.0"
   },
@@ -15,7 +23,7 @@
     "test": "npm run build && node --test test/tables-server.test.ts"
   },
   "dependencies": {
-    "aep-node": "file:../../aep-node"
+    "aep-node": "github:AgentEnvironmentProtocol/aep-node#v1.0.0-beta.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",

@@ -1,6 +1,6 @@
 # AEP Tables App
 
-A dual-interface web app for managing simple tables of typed records (no spreadsheet formulas and no cross-table relationships), built with [`aep-node`](../../aep-node/README.md).
+A dual-interface web app for managing simple tables of typed records (no spreadsheet formulas and no cross-table relationships), built with [`aep-node`](https://github.com/AgentEnvironmentProtocol/aep-node) (`v1.0.0-beta.0`).
 
 1. **Human Desktop Webapp** (`http://127.0.0.1:8781/`) — dark-themed table workspace with sidebar table switching, typed inline cell editors, field management, search filtering, and live Server-Sent Events (`/api/events`) updates.
 2. **AEP Endpoint** (`ws://127.0.0.1:8781/aep`, advertised at `/.well-known/aep.json`) — exposes `/tables` directly over AEP WebSocket (binary mode) so autonomous agents can connect standalone or mount it inside a virtual OS host via AEP passthrough.
